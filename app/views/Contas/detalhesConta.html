@@ -1,0 +1,23 @@
+#{extends 'main.html' /}
+#{set title:'Contas' /}
+
+ <meta charset="utf-8">
+<h1>EXTRATO DE RECARGAS</h1> 
+<h3>Conta : ${conta.numeroConta}<br></h3> 
+<h4>Cliente: ${cliente.nome}<br></h4>
+
+
+#{list items:recargas, as:'recarga'}
+	----------------------------------<br>
+	Data: ${recarga.data.format("dd/MM/yyyy hh:mm")}<br>
+	Recarga: ${recarga.recarga}<br>
+	Pagamento: ${recarga.pagamento}<br>
+	
+#{/list}
+    ----------------------------------<br>
+    <h3>SALDO R$ ${conta.saldo}<br></h3>
+    <br></br>
+    <div class="form-group col-md-2">
+			<a href="@{Application.index}" class="btn btn-danger btn-block">Página Inicial</a>
+	</div>
+  

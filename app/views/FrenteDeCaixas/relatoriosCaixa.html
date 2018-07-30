@@ -1,0 +1,61 @@
+#{extends 'mainOperador.html' /}
+#{set title:'Relatórios Caixas' /}
+
+<meta charset="UTF-8"/>
+<div class="card mb-3 container">
+ <div class="card-header">
+   <i class="fa fa-table"> Relatório do Caixa</i>
+ <div class="card-body">
+
+  	<div class="form-group">
+	<form action="@{FrenteDeCaixas.relatoriosCaixa}" method="post" enctype="multipart/form-data">			
+	<div class="form-row">
+       <div class="col-md-3">
+		
+		   <label for="frenteDeCaixa">selecione a data Inicial:</label>
+			<div class="input-group mb-3">				
+			   	<select id="sel-frenteDeCaixa" class="form-control"">  
+				   	#{list items:frenteDeCaixas, as:'frenteDeCaixa'}
+					   <option value="${frenteDeCaixa.id}">${frenteDeCaixa.abrirCaixa.format("dd/MM/yyyy")}</option>
+					#{/list}
+			    </select>
+			</div>
+		</div>
+		<div class="col-md-3">  	
+		   <label for="frenteDeCaixa">selecione a data Final:</label>
+			<div class="input-group mb-3">						   	
+			   <select id="sel-frenteDeCaixa" class="form-control"">  
+				  #{list items:frenteDeCaixas, as:'frenteDeCaixa'}
+				    <option value="${frenteDeCaixa.id}">${frenteDeCaixa.fecharCaixa.format("dd/MM/yyyy")}</option>
+				  #{/list}
+				</select>
+			</div>
+		</div>
+	</div>
+	<br></br>
+	<div class="row">
+	<div class="form-group col-md-2">      
+		<input class="btn btn-primary btn-block" type="submit" value="Gerar Relatório">
+	</div>
+	<div class="form-group col-md-2"> 
+	    <a href="@{Operadores.operador}" class="btn btn-danger btn-block">Sair</a>
+	</div>
+
+	<br></br>
+	</div>	
+	</form>
+	</div>
+
+	<br>
+	
+	<label><h4>Total de Refeicao: ${totRefiecao}</h4></label> 
+	<br>
+    <label><h4>Total de Recarga: ${totRecarga}</h4></label>
+    <br></br>
+    
+    
+
+  </div>
+  </div>
+ </div>
+
